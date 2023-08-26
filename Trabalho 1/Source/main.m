@@ -63,15 +63,3 @@ b_double_com_20_digitos = sprintf("%.20f", b_double);
 printf("\nErro estimado de arredondamento percentual gerado em a) -20.125: %.20f\n", (a_double_com_20_digitos - a_single_com_20_digitos) / a_double_com_20_digitos)
 printf("\nErro estimado de arredondamento percentual gerado em b) -60.06: %.20f\n", (b_double_com_20_digitos - b_single_com_20_digitos) / b_double_com_20_digitos)
 
-% ---------------------- 2 ---------------------------
-
-% 2.1). Dado o sistema de equações lineares abaixo para n3 equações:
-
-% n1=15; n2=25; n3=50;
-
-% i = 1                #       3x(i)    +  2x(i+5)                     =  2 
-% for i = 2 : n1-1     #       x(i-1)   +  3x(i)  +  m2x(i+5)          = -2 
-% for i = n1 : n2-1    #       2x(i-4)  +  4x(i)  +  x(i+1)            =  3 
-% i = n2               #       x(i-1)   +  6x(i)  -  x(i+4)            = -2 
-% for i = n2+1 : n3-1  #       x(i-3)   +  x(i-1) +  7*x(i)+2x(i+1)    =  5 
-% i = n3               #       2x(i-10) +  5x(i)                       = -5 
