@@ -23,11 +23,10 @@ for k = 1: n - 1
             A(i, j) = A(i, j) - aux * A(k, j);
         end
     end
-    A
 end
 %Analise de tipos de sistemas: Determinado, Indeerminado e Impossivel
     if A(n, n) != 0 % Se A(n, n) for resíduo pequeno: abs(A(n,n)) > 1e-14
-        X(n, 1) = A(n, n + 1)/A(n, n)
+        X(n, 1) = A(n, n + 1)/A(n, n);
     else
         if A(n, n+1) == 0 % Se A(n, n + 1) for resíduo pequeno: abs(A(n,n + 1)) < 1e-14
             disp('Sistema Indeterminado');
