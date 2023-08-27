@@ -1,18 +1,16 @@
-% 1). Faça o armazenamento dos números decimais abaixo em variável float (single) e double, nesse link VPL.
-% Imprima o respectivo s, e, f, em binário, do armazenamento em float (single) e em double;
-% Imprima-os com 20 dígitos decimais significativos, em  float e double.
-% Imprima o erro estimado de arredondamento percentual gerado:
+% Aluno: Tiago Faustino de Siqueira
+% Matrícula: 22102193
 
-% 1a). -20.125;
-% 1b). -60.06.
+% 1a). -20.125
+% 1b). -60.06
 
 % Faça o armazenamento dos números decimais abaixo em variável float (single) e double
 
 a_double = -20.125; % Float Double
-a_single = single(a_double) % Float Single
+a_single = single(a_double); % Float Single
 
 b_double = -60.06; % Float Double
-b_single = single(b_double) % Float Single
+b_single = single(b_double); % Float Single
 
 % Passando de decimal para binário
 
@@ -55,11 +53,6 @@ printf("Float Double com 20 digitos significativos: %.20f\n", b_double)
 
 % Imprima o erro estimado de arredondamento percentual gerado:
 
-a_single_com_20_digitos = sprintf("%.20f", a_single);
-a_double_com_20_digitos = sprintf("%.20f", a_double);
-b_single_com_20_digitos = sprintf("%.20f", b_single);
-b_double_com_20_digitos = sprintf("%.20f", b_double);
-
-printf("\nErro estimado de arredondamento percentual gerado em a) -20.125: %.20f\n", (a_double_com_20_digitos - a_single_com_20_digitos) / a_double_com_20_digitos)
-printf("\nErro estimado de arredondamento percentual gerado em b) -60.06: %.20f\n", (b_double_com_20_digitos - b_single_com_20_digitos) / b_double_com_20_digitos)
+printf("\nErro estimado de arredondamento percentual gerado em a) -20.125: %.20f %%\n", abs(((double(single(a_double)) - a_double) / a_double)*100))
+printf("\nErro estimado de arredondamento percentual gerado em b) -60.06: %.20f %%\n", abs(((double(single(b_double)) - b_double) / b_double)*100))
 
