@@ -23,7 +23,7 @@ b_double_bin = dec2bin(typecast(b_double, 'uint64')); % Float Double
 b_single_bin = dec2bin(typecast(b_single, 'uint32')); % Float Single
 
 % Extraindo o sinal (s), expoente (e) e mantissa (f)
-11000001101000010000000000000000
+
 function [sinal, expoente, mantissa] = extrairComponentes(binario, tipo)
     if tipo == "single"
         sinal = binario(1); % Pega o primeiro bit
