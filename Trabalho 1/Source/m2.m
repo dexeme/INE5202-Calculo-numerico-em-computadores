@@ -43,11 +43,11 @@ i = n3; A(i, i-10) = 2; A(i, i) = 5; B(i, 1) = -5;
 
 printf("Solução do sistema:\n\nX=\n");
 disp(X);
-printf("Resíduo máximo das equações: %d\n", residuo);
+printf("\nResíduo máximo das equações: %d\n", residuo);
 
 % 1c). Imprima o número total de operações com números reais (em PONTO FLUTUANTE) utilizadas;
 
-printf("Número de operações: %d\n", operacoes);
+printf("\nNúmero de operações: %d\n", operacoes);
   
 % 2a). Demostre/Imprima que o sistema acima tem convergência garantida por métodos iterativos;
 
@@ -58,18 +58,18 @@ printf("Número de operações: %d\n", operacoes);
 % Pelo menos uma das linhas tem que ser estritamente diagonal dominante.
 
 
-% Teorema de convergência:
-% Seja A uma matriz estritamente diagonal dominante, então
-% o método de Gauss-Seidel converge para a solução do sistema Ax = b.
-% A diagonal tem que ser maior ou igual que os outros elementos da linha somados.
-% Pelo menos uma das linhas tem que ser estritamente diagonal dominante.
+printf('\nTeorema de convergência:\n\n');
+printf("Seja A uma matriz estritamente diagonal dominante, então\n")
+printf("o método de Gauss-Seidel converge para a solução do sistema Ax = b.\n")
+printf("A diagonal tem que ser maior ou igual que os outros elementos da linha somados.\n")
+printf("Pelo menos uma das linhas tem que ser estritamente diagonal dominante.")
 
-printf('3x(i) + 2x(i+5) =  2 \n-> |3| > |2|\n')
-printf('x(i-1) + 3x(i) + 2x(i+5) = -2 \n-> |3| > |1| + |2|\n')
-printf('2x(i-4) + 4x(i) + x(i+1) =  3 \n-> |4| > |2| + |1|\n')
-printf('x(i-1) +  6x(i) - x(i+4) = -2 \n-> |6| > |1| + |-1|\n')
-printf('x(i-3) + x(i-1) + 7*x(i) + 2x(i+1)  =  5 \n-> |7| > |1| + |2|\n')
-printf('2x(i-10) + 5x(i) = -5 \n-> |5| > |2|\n')
+printf('\n\n\n3x(i) + 2x(i+5) =  2 \n-> |3| > |2|\n\n')
+printf('x(i-1) + 3x(i) + 2x(i+5) = -2 \n-> |3| > |1| + |2|\n\n')
+printf('2x(i-4) + 4x(i) + x(i+1) =  3 \n-> |4| > |2| + |1|\n\n')
+printf('x(i-1) +  6x(i) - x(i+4) = -2 \n-> |6| > |1| + |-1|\n\n')
+printf('x(i-3) + x(i-1) + 7*x(i) + 2x(i+1)  =  5 \n-> |7| > |1| + |2|\n\n')
+printf('2x(i-10) + 5x(i) = -5 \n-> |5| > |2|\n\n')
 
 
 
@@ -78,5 +78,7 @@ printf('2x(i-10) + 5x(i) = -5 \n-> |5| > |2|\n')
 % (escolha um fator de relaxação adequado) e operações possível, 
 % COM PRECISÃO DE 6 DÍGITOS EXATOS DEPOIS DA VIRGULA. 
 % Imprima a solução e o resíduo máximo das equações. 
+
+fgauss_seidel(A, B)
 
 
