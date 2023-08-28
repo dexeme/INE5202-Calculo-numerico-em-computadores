@@ -55,5 +55,3 @@ printf("Float Double com 20 digitos significativos: %.20f\n", b_double)
 
 printf("\nErro estimado de arredondamento percentual gerado em a) -20.125: %.20f %%\n", abs(((double(single(a_double)) - a_double) / a_double)*100))
 printf("\nErro estimado de arredondamento percentual gerado em b) -60.06: %.20f %%\n", abs(((double(single(b_double)) - b_double) / b_double)*100))
-2
-

@@ -1,13 +1,17 @@
-function X = fgauss(A, B)
+function [X, operacoes, residuo] = fgauss(A, B)
 n1 = 15; n2 = 25; n3 = 50;
+A_o = A;
+operacoes = 0;
+residuo = 0;
 A = [A B];
-n = size(A, 1)
-m = size(B, 2)
+n = size(A, 1);
+m = size(B, 2);
 
 for k = 1: n - 1
     % Buscar a melhor linha k, pro troca de linhas - Pivotação Parcial:
     % Procurar na coluna j=k, qual é o maior valor em módulo abaixo da diagonal principal
     % A(k:n, k)
+    operacoes = operacoes + 1;
     k;
             [maior_modulo, local_do_maior] = max(abs(A(k:n, k)));%A(k:n, k) contem o vetor de coeficientes abaixo da diagonal principal da coluna k
     local_do_maior = local_do_maior + k - 1; %Acresenta as k-1 linhas acima da diagonal principal da coluna k
@@ -16,23 +20,27 @@ for k = 1: n - 1
     A(local_do_maior, : ) = A_original(k, : ); %Linha do maior modulo recebe a linha k original, antes de ser substituida
     A;
     for i = k+1:n
-    
+        operacoes = operacoes + 1;
         aux = A(i,k) / A(k, k);
         A(i,k) = 0;
         for j = k + 1: n + 1
+            operacoes = operacoes + 1;
             A(i, j) = A(i, j) - aux * A(k, j);
         end
     end
 end
 %Analise de tipos de sistemas: Determinado, Indeerminado e Impossivel
     if A(n, n) != 0 % Se A(n, n) for resíduo pequeno: abs(A(n,n)) > 1e-14
+        operacoes = operacoes + 1;
         X(n, 1) = A(n, n + 1)/A(n, n);
     else
         if A(n, n+1) == 0 % Se A(n, n + 1) for resíduo pequeno: abs(A(n,n + 1)) < 1e-14
             disp('Sistema Indeterminado');
+            operacoes = operacoes + 1;
             X(n, 1) = 12;
         else
             disp('Sistema Impossivel');
+            operacoes = operacoes + 1;
             X(n) = NaN;
             exit;
         end
@@ -40,10 +48,14 @@ end
     %Retrosubstituição   
     for i = n - 1:-1:1
         somatorio = 0;
+        operacoes = operacoes + 1;
         for j = i + 1:n
             somatorio = somatorio + A(i, j) * X(j,1);
+            operacoes = operacoes + 1;
         end
         %somatorio = sum(A(i, i + 1:n) * X(i + 1:n,1)) %alternativa
+        operacoes = operacoes + 1;
         X(i, 1) = (A(i, n + 1) - somatorio) / A(i, i);
+        residuo = max(abs(A_o * X - B));
     end
 end

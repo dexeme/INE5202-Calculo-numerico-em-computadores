@@ -1,4 +1,5 @@
-% ---------------------- 2 ---------------------------
+% Aluno: Tiago Faustino de Siqueira
+% Matrícula: 22102193
 
 % 2.1). Dado o sistema de equações lineares abaixo para n3 equações:
 
@@ -12,6 +13,8 @@
 % i = n3               #       2x(i-10) +  5x(i)                       = -5 
 
 n1 = 15; n2 = 25; n3 = 50;
+
+% 1a). Armazene o sistema acima em forma de matriz completa (não imprima);
 
 A = zeros(n3, n3);
 B = zeros(n3, 1);
@@ -34,8 +37,17 @@ end;
 
 i = n3; A(i, i-10) = 2; A(i, i) = 5; B(i, 1) = -5;
 
+% 1b). Resolva o sistema acima por um método direto construído em aula. Imprima a solução e o resíduo máximo das equações;
 
-x = fgauss(A, B)
+[X, operacoes, residuo] = fgauss(A, B);
+
+printf("Solução do sistema:\n\nX=\n");
+disp(X);
+printf("Resíduo máximo das equações: %d\n", residuo);
+
+% 1c). Imprima o número total de operações com números reais (em PONTO FLUTUANTE) utilizadas;
+
+printf("Número de operações: %d\n", operacoes);
 
             
 
