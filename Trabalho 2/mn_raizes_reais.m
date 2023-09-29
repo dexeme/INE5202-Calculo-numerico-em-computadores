@@ -4,7 +4,7 @@ function raiz = mn_raizes_reais(f, dominio)
     
     % Localização das raízes iniciais:
     
-    xi = localizacao(f, dominio);
+    xi = calcula_xi(f, dominio);
     
     for indice = 1 : length(xi)
         delta_x = 1e-5;
