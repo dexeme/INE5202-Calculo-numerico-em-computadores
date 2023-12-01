@@ -5,7 +5,7 @@ source("coeficientes-gauss-legendre.m");
 
 function q1A()
 
-    [C, t] = get_C_t()
+    [C, t] = get_C_t();
 
     disp("--------------------------------------------");
     disp("1.a)");
