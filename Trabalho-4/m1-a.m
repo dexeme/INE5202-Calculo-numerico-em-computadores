@@ -1,7 +1,12 @@
+source("coeficientes-gauss-legendre.m");
+
 %  1a. (Opcional) Monte as 3 equações que determinam os m = 3 coeficientes 
 %  pesos C e os m = 3 pontos/nós t necessários no Método de Gauss-Legendre;
 
 function q1A()
+
+    [C, t] = get_C_t()
+
     disp("--------------------------------------------");
     disp("1.a)");
     disp("");
@@ -9,54 +14,34 @@ function q1A()
     disp("pesos C e os m = 3 pontos/nós t necessários no Método de Gauss-Legendre;");
     disp("");
         
-    % Primeiro vamos montar as equações que determinam os coeficientes C
-    disp("   Coeficientes C:");
-    disp("");
-    disp("Primeiro vamos montar as equações que determinam os coeficientes C.");
-    disp("Para isso vamos usar a fórmula de integração de Gauss-Legendre");
-    disp("que é dada por:");
+    disp("A fórmula de integração de Gauss-Legendre");
+    disp("é dada por:");
     disp("");
     disp("I = C1*f(t1) + C2*f(t2) + C3*f(t3)");
     disp("");
-    disp("onde:");
+    disp("   Equações:");
     disp("");
-    disp("     f(t) é a função que queremos integrar");
-    disp("     t1, t2 e t3 são os pontos/nós de integração");
-    disp("     C1, C2 e C3 são os coeficientes que queremos determinar");
-    disp("");
-    disp("");
-    disp("Para determinar os coeficientes C vamos usar a fórmula:");
-    disp("");
-    disp("     C1 = 5/9");
-    disp("     C2 = 8/9");
-    disp("     C3 = 5/9");
-    disp("");
-    disp("onde:");
-    disp("");
-    disp("     5/9, 8/9 e 5/9 são os pesos de integração");
-    disp("     que são dados na tabela do método de Gauss-Legendre");
-    disp("");
-    disp("");
-    disp("Para determinar os pontos/nós de integração vamos usar a fórmula:");
-    disp("");
-    disp("     t1 = -sqrt(3/5)");
-    disp("     t2 = 0");
-    disp("     t3 = sqrt(3/5)");
-    disp("");
-    disp("");
-    disp("Agora vamos montar as equações que determinam os pontos/nós t");
+    printf("\t2   = C(m, 1) + C(m, 2) + C(m, 3) + C(m, 4)\n");
+    printf("\t0   = C(m, 1)*t(m, 1) + C(m, 2)*t(m, 2) + C(m, 3)*t(m, 3) + C(m, 4)*t(m, 4)\n");
+    printf("\t2/3 = C(m, 1)*t(m, 1)² + C(m, 2)*t(m, 2)² + C(m, 3)*t(m, 3)² + C(m, 4)*t(m, 4)²\n");
+    printf("\t0   = C(m, 1)*t(m, 1)³ + C(m, 2)*t(m, 2)³ + C(m, 3)*t(m, 3)³ + C(m, 4)*t(m, 4)³\n");
+    printf("\t2/5 = C(m, 1)*t(m, 1)⁴ + C(m, 2)*t(m, 2)⁴ + C(m, 3)*t(m, 3)⁴ + C(m, 4)*t(m, 4)⁴\n");
+    printf("\t0   = C(m, 1)*t(m, 1)⁵ + C(m, 2)*t(m, 2)⁵ + C(m, 3)*t(m, 3)⁵ + C(m, 4)*t(m, 4)⁵\n");
+    printf("\t2/7 = C(m, 1)*t(m, 1)⁶ + C(m, 2)*t(m, 2)⁶ + C(m, 3)*t(m, 3)⁶ + C(m, 4)*t(m, 4)⁶\n");
+    printf("\t0   = C(m, 1)*t(m, 1)⁷ + C(m, 2)*t(m, 2)⁷ + C(m, 3)*t(m, 3)⁷ + C(m, 4)*t(m, 4)⁷\n")
     disp("");
     disp("   Pontos t:");
     disp("");
-    disp("(1) Primeira equação:");
+    printf("\tt(4, 1): %.20f\n", t(4, 1));
+    printf("\tt(4, 2): %.20f\n", t(4, 2));
+    printf("\tt(4, 3): %.20f\n", t(4, 3));
+    printf("\tt(4, 4): %.20f\n", t(4, 4));
     disp("");
-    disp("     L1(t) = t -> t1 = 0");
+    disp("   Pesos C:");
     disp("");
-    disp("(2) Segunda equação:");
-    disp("");
-    disp("     L2(t) = 1/2*(3*t² - 1) -> t2 = -sqrt(3/5)");
-    disp("");
-    disp("(3) Terceira equação:");
-    disp("");
-    disp("     L3(t) = 1/2*(5*t³ - 3*t) -> t3 = sqrt(3/5)");
+    printf("\tC(4, 1): %.20f\n", C(4, 1));
+    printf("\tC(4, 2): %.20f\n", C(4, 2));
+    printf("\tC(4, 3): %.20f\n", C(4, 3));
+    printf("\tC(4, 4): %.20f\n", C(4, 4));
+
 end
